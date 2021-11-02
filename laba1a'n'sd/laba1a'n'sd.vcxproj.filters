@@ -27,4 +27,7 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\laba1a%27n%27sd\laba1a%27n%27sd\cpp.hint" />
+  </ItemGroup>
 </Project>

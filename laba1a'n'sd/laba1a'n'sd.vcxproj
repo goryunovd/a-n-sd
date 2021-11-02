@@ -157,6 +157,9 @@
     <ClInclude Include="..\..\laba1a%27n%27sd\laba1a%27n%27sd\Listclass.h" />
     <ClInclude Include="Nodeclass.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\laba1a%27n%27sd\laba1a%27n%27sd\cpp.hint" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
