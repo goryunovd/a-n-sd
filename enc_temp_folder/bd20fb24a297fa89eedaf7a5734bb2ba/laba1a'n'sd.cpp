@@ -1,5 +1,6 @@
 ﻿#include <iostream>
 #include"Listclass.h"
+#include"Nodeclass.h"
 /*some commit*/
 int main()
 {

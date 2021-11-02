@@ -14,14 +14,14 @@ public:
 	int getNextData() { if (this->next == NULL)  return 0; else return this->next->data; }
 	int getPrevData() { if (this->prev == NULL)  return 0; else return this->prev->data; }
 	void setData(int newData) { this->data= newData; }
-	void setNext(Node *newnext) {this->next = newnext;}
-	void setPrev(Node *newprev) { this->prev = newprev;}
+	void setNext(Node* newnext) {this->next = newnext;}
+	void setPrev(Node* newprev) { this->prev = newprev;}
 
-	Node *getNext()  { if (this->next == NULL) { return 0; } else return this->next; }
-	Node *getPrev()  { if (this->prev== NULL) { return 0; } else return this->prev; }
-	Node *makeNull() { return this->next = NULL; }
+	Node* getNext()  { if (this->next == NULL) { return 0; } else return this->next; }
+	Node* getPrev()  { if (this->prev== NULL) { return 0; } else return this->prev; }
+	Node* makeNull() { return this->next = NULL; }
 private:
 	int data;
-	Node *next;Node *prev;
+	Node* next;Node* prev;
 };
 #endif
