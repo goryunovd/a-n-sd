@@ -177,7 +177,61 @@ namespace UnitTest2
 		}
 		TEST_METHOD(Test_getsize)
 		{
-		
+			List list;
+			int size;
+			size = list.get_size();
+			Assert::AreEqual(size, 0);
+			List list2;
+			for (int i = 0; i < 5; i++) { list2.push_back(i + 1); }//1-2-3-4-5
+			size = list2.get_size();
+			Assert::AreEqual(size, 5);
+		}
+		TEST_METHOD(Test_clear)
+		{
+			List list;
+			list.clear();
+			Assert::IsTrue(list.isEmpty());
+			List list2(1);
+			list2.clear();
+			Assert::IsTrue(list2.isEmpty());
+			List list3;
+			for (int i = 0; i < 5; i++) { list3.push_back(i + 1); }//1-2-3-4-5
+			list3.clear();
+			Assert::IsTrue(list3.isEmpty());
+
+		}
+		TEST_METHOD(Test_set)
+		{
+			List list;
+			bool check = 1;
+			try
+			{
+				list.set(2, 2);
+			}
+			catch (std::invalid_argument)
+			{
+				check = true;
+			}
+			Assert::IsTrue(check);
+			List list2;
+			for (int i = 0; i < 5; i++) { list2.push_back(i + 1); }//1-2-3-4-5
+			list2.set(2, 666);
+			Assert::AreEqual(list2.at(0), 1);
+			Assert::AreEqual(list2.at(1), 2);
+			Assert::AreEqual(list2.at(2), 666);
+			Assert::AreEqual(list2.at(3), 4);
+			Assert::AreEqual(list2.at(4), 5);
+		}
+		TEST_METHOD(Test_inverse)
+		{
+			List list;
+			for (int i = 0; i < 5; i++) { list.push_back(i ); }//0-1-2-3-4
+			list.reverse();
+			Assert::AreEqual(list.at(0), 4);
+			Assert::AreEqual(list.at(1), 3);
+			Assert::AreEqual(list.at(2), 2);
+			Assert::AreEqual(list.at(3), 1);
+			Assert::AreEqual(list.at(4), 0);
 		}
 	};
 }
