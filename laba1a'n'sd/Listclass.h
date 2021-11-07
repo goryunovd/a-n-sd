@@ -1,24 +1,17 @@
 #pragma once
 #ifndef listclass_H
-#include"Nodeclass.h"
 #include<iostream>
-
+#include"Nodeclass.h"
 /*
 here is the descrpitpion of 
 */
 class List
 {
+private:
+	Node* head, *tail;
 public:
 	List() { this->head = NULL; this->tail = this->head; }
-	~List() {
-		Node* elem = head;
-		Node* tmp;
-		while (elem != NULL) {
-			tmp = elem;
-			elem = elem->getNext();
-			delete tmp;
-		}
-	}
+	
 	List(int data)
 	{
 		Node* elem = new Node(data);
@@ -27,14 +20,15 @@ public:
 	}
 	void push_back(int data)// algorithm for adding a node to the end
 	{
-		if (tail = NULL)
+		if (this->tail == NULL)
 		{
 			push_front(data);
 		}
 		else
 		{
-			Node* cur = new Node;
-			cur = this->tail;
+
+			Node* cur = new Node();
+			cur = this->tail;	
 			Node *tmp = new Node(data);
 			this->tail->setNext(tmp);
 			this->tail = tmp;
@@ -64,7 +58,7 @@ public:
 
 	void pop_back() //delete last element of the list
 	{
-		if (tail == head) { throw runtime_error("Failed to execute the functon pop_back\n"); }
+		if (tail == head) { pop_front(); }
 		else { Node* cur = new Node; cur = tail; tail = tail->getPrev(); delete cur; tail->makeNull(); }
 	}
 	
@@ -89,7 +83,7 @@ public:
 			cur = head;
 			while (cur != NULL)
 			{
-				if (index == number + 1)
+				if (index == (number + 1))
 				{//cur2->tmp->cur
 					check = 1;
 					Node *cur2 = cur;
@@ -112,6 +106,7 @@ public:
 	int at(size_t index)//get element by index
 	{
 		Node* cur = new Node;
+		cur = this->head;
 		int count = 0;
 		while (cur != NULL)
 		{
@@ -174,7 +169,7 @@ public:
 			cur = head;
 		}
 	}
-	void set(size_t index, int new_data)
+	void set(size_t index, int new_data) //element[index] have new data
 	{
 		Node *cur = head;
 		int count = 0;
@@ -215,8 +210,15 @@ void reverse()
 		set(get_size() - 1 - i, tmp);
 	}
 }
-private:
-	Node* head, *tail;
+~List() {
+	Node* elem = head;
+	Node* tmp;
+	while (elem != NULL) {
+		tmp = elem;
+		elem = elem->getNext();
+		delete tmp;
+	}
+}
 };	
 
 	ostream& operator<< (ostream& out, List& printList) // Overload operator output
