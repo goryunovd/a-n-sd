@@ -19,7 +19,7 @@ int main()
 	list.pop_back();
 	list.remove(3);
 	list.insert(21, 3);
-	std::cout << "Element by index 3:" << list.at(3) << std::endl;
+	std::cout << "Element[2]:" << list.at(2) << std::endl;
 	list.set(3, 35);
 	list.insert(1, 5);
 	list.reverse();
